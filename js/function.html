@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        // function test(){
+        //     if(arguments.length == 3){
+
+        //     } else if(arguments.length == 2){
+
+        //     } else if(arguments.length == 1){
+
+        //     }
+        // }
+        // let arr = ['안녕', '자바', '스크립트'];
+        // test(...arr);
+
+        // function outer(name){
+        //     let str = `Hello ${name}!`;
+        //     return function(){
+        //         alert(str);
+        //     }
+        // }
+
+        // let f = outer("gondr");
+        // f();
+
+        // let product = {
+        //     name : "banana",
+        //     category : 'fruit',
+        //     property : '탄수화물, 지방',
+        //     origin : 'jeju island',
+        //     check : function(){
+        //         console.log("I'm Banana!!");
+        //     }
+        // }
+        // for(let key in product){
+        //     if(typeof product[key] != "function"){
+        //         console.log(key);
+        //     }
+        // }
+
+        // delete(product.property);
+
+        function Product(name, category, origin){
+            this.name = name;
+            this.category = category;
+            this.origin = origin;
+            this.check = function(){
+                console.log(`I'm ${this.name}!`);
+            }
+        }
+
+        Product.prototype.check = function(){
+            console.log(`I'm ${this.name}!`);
+        }
+
+        let banana = new Product("banana", "fruit", "jeju");
+        let apple = new Product("apple", "fruit", "daegu");
+
+        banana.__proto__.check = function(){
+            console.log(`원산지 : ${banana.origin}`);
+        };
+        banana.check();
+        apple.check();
+    </script>
+</body>
+</html>

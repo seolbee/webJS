@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>캡슐화</title>
+</head>
+<body>
+    <script>
+        //이벤트 캡쳐링, 버블링
+
+        const {sqrt, pow} = Math;
+        // function Pita(width, height)
+        // {
+        //     let w = width;
+        //     let h = height;
+        //     this.getW = function(){
+        //         return w;
+        //     }
+
+        //     this.getH = function(){
+        //         return h;
+        //     }
+        // }
+
+        // Pita.prototype.getC = function(){
+        //     return sqrt(pow(this.getW(), 2) + pow(this.getH(), 2));
+        // }
+
+        // let p = new Pita(4, 5);
+        // console.log(`빗변의 길이는 ${p.getC()}`);
+
+        function Triangle(w, h){
+            this.base = Pita;
+            this.base(w, h);
+        }
+
+        Triangle.prototype = Pita.prototype;
+
+        Triangle.prototype.getArea = function(){
+            return this.getW() * this.getH() / 2;
+        }
+
+        let tri = new Triangle(4, 5);
+        console.log(`넓이는 ${tri.getArea()}`);
+        console.log(`빗변의 길이는 ${tri.getC()}`);
+    </script>
+</body>
+</html>
